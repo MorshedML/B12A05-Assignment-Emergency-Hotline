@@ -66,3 +66,27 @@ document.getElementById('clear-history').addEventListener('click',function(){
     document.getElementById('call-history-part2').innerHTML = '';
 });
 
+// Copy Function
+const copyBtns = document.getElementsByClassName('copy-btn');
+
+for(const copyBtn of copyBtns){
+    copyBtn.addEventListener('click',function(){
+        const copyCount = document.getElementById('copy-count').innerText;
+        
+        const newCopyCount = Number(copyCount)+1;
+
+        document.getElementById('copy-count').innerText = newCopyCount;
+
+        const ServiceNumber = copyBtn.parentNode.parentNode.children[2].innerText;
+        
+        const copied = navigator.clipboard.writeText(ServiceNumber);
+        
+        if(copied){
+            alert(`The Number is Copied ${ServiceNumber}`)
+        }
+        else{
+            alert('Something went wrong')
+        }
+
+    })
+}
