@@ -59,3 +59,10 @@ for(const callBtn of callBtns){
 
     })    
 }
+
+
+
+document.getElementById('clear-history').addEventListener('click',function(){
+    document.getElementById('call-history-part2').innerHTML = '';
+});
+
